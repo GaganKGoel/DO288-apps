@@ -1,0 +1,12 @@
+FROM registry.access.redhat.com/ubi9/ubi:latest
+
+RUN yum  -y --nodocs --disableplugin=subscription-manager \
+         install iproute bind-utils iputils procps-ng  && \
+    yum  -y --nodocs --disableplugin=subscription-manager \
+         clean all
+
+USER 1001
+
+CMD ["/usr/bin/sleep", "infinity"]
+
+
